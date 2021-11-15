@@ -13,18 +13,6 @@ class TestTableViewCell: UITableViewCell {
     }
     textView.frame = contentView.bounds
   }
-
-//  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-//    print("CELL action to perform: \(action)")
-//    return false
-//  }
-}
-
-class TestTableView: UITableView {
-//  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-//    print("TABLEVIEW action to perform: \(action)")
-//    return false
-//  }
 }
 
 class TextInTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -36,7 +24,7 @@ class TextInTableViewController: UIViewController, UITableViewDataSource, UITabl
     fatalError("init(coder:) has not been implemented")
   }
 
-  let tableView = TestTableView(frame: .zero, style: .plain)
+  let tableView = UITableView(frame: .zero, style: .plain)
   let text = "Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection."
 
   override func viewDidLoad() {
@@ -66,15 +54,5 @@ class TextInTableViewController: UIViewController, UITableViewDataSource, UITabl
     cell.textView.text = Lorem.paragraphs(3)
     return cell
   }
-//
-//  func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-//    return false
-//  }
-//
-//  func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {}
-//
-//  func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
-//    return false
-//  }
 }
 
