@@ -1,9 +1,8 @@
 /*! @copyright 2021 Medium */
 
 import UIKit
-import LoremSwiftum
 
-class TestTableViewCell: UITableViewCell {
+class TextTableViewCell: UITableViewCell {
   var textView = TextView()
 
   override func layoutSubviews() {
@@ -25,7 +24,6 @@ class TextInTableViewController: UIViewController, UITableViewDataSource, UITabl
   }
 
   let tableView = UITableView(frame: .zero, style: .plain)
-  let text = "Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection. Some text to put in the view because I need some to test the selection."
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,7 +31,7 @@ class TextInTableViewController: UIViewController, UITableViewDataSource, UITabl
     tableView.dataSource = self
     tableView.delegate = self
     tableView.selectionFollowsFocus = false
-    tableView.register(TestTableViewCell.self, forCellReuseIdentifier: "Cell")
+    tableView.register(TextTableViewCell.self, forCellReuseIdentifier: "Cell")
 
     tableView.frame = view.bounds
     view.addSubview(tableView)
@@ -48,10 +46,9 @@ class TextInTableViewController: UIViewController, UITableViewDataSource, UITabl
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TestTableViewCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TextTableViewCell else {
       fatalError("NOPE")
     }
-    cell.textView.text = Lorem.paragraphs(3)
     return cell
   }
 }

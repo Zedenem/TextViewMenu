@@ -3,7 +3,7 @@
 import UIKit
 import LoremSwiftum
 
-class TestCell: UICollectionViewCell {
+class TextCollectionViewCell: UICollectionViewCell {
   var textView = TextView()
 
   override func layoutSubviews() {
@@ -15,14 +15,14 @@ class TestCell: UICollectionViewCell {
   }
 
   override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-    print("CELL action to perform: \(action)")
+    print("CollectionViewCell action to perform: \(action)")
     return false
   }
 }
 
 class TestCollectionView: UICollectionView {
   override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-    print("COLLECTIONVIEW action to perform: \(action)")
+    print("CollectionView action to perform: \(action)")
     return false
   }
 }
@@ -49,7 +49,7 @@ class TextInCollectionViewController: UIViewController, UICollectionViewDataSour
       flowLayout.minimumLineSpacing = 10
       flowLayout.minimumInteritemSpacing = 10
     }
-    collectionView.register(TestCell.self, forCellWithReuseIdentifier: "Cell")
+    collectionView.register(TextCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
 
     collectionView.frame = view.bounds
     view.addSubview(collectionView)
@@ -64,10 +64,9 @@ class TextInCollectionViewController: UIViewController, UICollectionViewDataSour
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? TestCell else {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? TextCollectionViewCell else {
       fatalError("NOPE")
     }
-    cell.textView.text = Lorem.paragraphs(3)
     return cell
   }
 
@@ -88,9 +87,7 @@ class TextInCollectionViewController: UIViewController, UICollectionViewDataSour
     return false
   }
 
-  func collectionView(_ collectionView: UICollectionView, willDisplayContextMenu configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
-    print("yolo")
-  }
+  func collectionView(_ collectionView: UICollectionView, willDisplayContextMenu configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {}
 
   func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
     return false

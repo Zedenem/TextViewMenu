@@ -10,8 +10,6 @@ class JustTextViewController: UIViewController {
 
     let textView = TextView(frame: view.bounds, textContainer: nil)
     view.addSubview(textView)
-    textView.isEditable = false;
-    textView.text = Lorem.paragraphs(3)
   }
 }
 

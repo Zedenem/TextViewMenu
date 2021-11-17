@@ -15,13 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let tabBarController = UITabBarController()
 
     let justTextVC = JustTextViewController()
-    justTextVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+    justTextVC.tabBarItem = UITabBarItem(title: "Just Text", image: UIImage(systemName: "paperplane"), tag: 0)
 
     let textInCollectionVC = TextInCollectionViewController()
-    textInCollectionVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+    textInCollectionVC.tabBarItem = UITabBarItem(title: "Collection View", image: UIImage(systemName: "paperplane"), tag: 0)
 
     let textInTableVC = TextInTableViewController()
-    textInTableVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+    textInTableVC.tabBarItem = UITabBarItem(title: "Table View", image: UIImage(systemName: "paperplane"), tag: 0)
 
     tabBarController.viewControllers = [justTextVC, textInCollectionVC, textInTableVC]
     window?.rootViewController = tabBarController
